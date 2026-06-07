@@ -1,0 +1,13 @@
+airbnb_dbt:
+  outputs:
+    dev:
+      account: RAZEBAJ-MD37479
+      database: AIRBNB
+      password: DataChris2001@
+      role: ACCOUNTADMIN
+      schema: dbd_schema
+      threads: 1
+      type: snowflake
+      user: chris
+      warehouse: COMPUTE_WH
+  target: dev

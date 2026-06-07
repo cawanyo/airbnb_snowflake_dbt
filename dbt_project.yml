@@ -1,0 +1,33 @@
+name: 'airbnb_dbt'
+version: '1.0.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'airbnb_dbt'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+
+models:
+  airbnb_dbt:
+    # Config indicated by + and applies to all files under models/example/
+    bronze:
+      +materialized: table
+      +schema: bronze
+    
+    silver:
+      +schema: silver
+
+    gold:
+      +schema: gold
+      +materialized: incremental
+      ephemeral:
+        +materialized: ephemeral

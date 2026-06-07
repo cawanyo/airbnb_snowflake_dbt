@@ -1,0 +1,10 @@
+
+SELECT 
+    HOST_ID,
+    HOST_NAME,
+    HOST_SINCE,
+    IS_SUPERHOST,
+    RESPONSE_RATE_QUAlity,
+    HOST_CREATED_AT AS CREATED_AT
+
+FROM {{ ref('obt') }}

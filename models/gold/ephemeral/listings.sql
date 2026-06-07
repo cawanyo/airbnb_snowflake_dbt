@@ -1,0 +1,8 @@
+
+SELECT 
+    LISTING_ID,
+    PROPERTY_TYPE,
+    CITY,
+    LISTING_CREATED_AT AS CREATED_AT
+
+FROM {{ ref('obt') }}

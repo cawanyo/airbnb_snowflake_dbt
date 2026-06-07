@@ -1,0 +1,35 @@
+name: dbt CI
+
+
+on:
+  pull_request:
+    branches:
+      - main
+
+
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dbt
+        run: |
+          pip install dbt-snowflake
+
+      - name: Install dependencies
+        run: dbt deps
+
+      - name: Parse Project
+        run: dbt parse
+
+      - name: Compile Models
+        run: dbt compile

@@ -1,0 +1,13 @@
+
+SELECT 
+    BOOKING_ID,
+    LISTING_ID,
+    HOST_ID,
+    TOTAL_AMOUNT,
+    BEDROOMS,
+    ACCOMMODATES,
+    PRICE_PER_NIGHT,
+    RESPONSE_RATE
+
+
+FROM {{ ref('obt')}}
